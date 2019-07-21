@@ -44,7 +44,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             public void onClick(View v) {
                 context.startActivity(new Intent(context, DetailActivity.class)
                 .putExtra("title",titles.get(position).getTitle())
-                .putExtra("desc",titles.get(position).getDesc()));
+                .putExtra("desc",titles.get(position).getDesc())
+                .putExtra("id",titles.get(position).getId()));
             }
         });
 
