@@ -38,7 +38,7 @@
 
     <Button
         android:id="@+id/btn_edit_edit"
-        android:background="@color/colorButton"
+        android:background="@color/colorPrimary"
         android:layout_gravity="right"
         android:layout_margin="10dp"
         android:layout_width="wrap_content"

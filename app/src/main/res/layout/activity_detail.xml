@@ -52,7 +52,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:text="@string/edit"
-            android:background="@color/colorButton"/>
+            android:background="@color/colorPrimary"/>
         <Button
             android:id="@+id/btn_detail_del"
             android:layout_width="wrap_content"
@@ -60,7 +60,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:text="delete"
-            android:background="@color/colorAccent"/>
+            android:background="@color/colorButton2"/>
 
     </LinearLayout>
 
