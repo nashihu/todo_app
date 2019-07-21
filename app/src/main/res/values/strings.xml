@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Testing ICON+</string>
+    <string name="title">Title</string>
+    <string name="ini_adalah_title">Ini adalah Title</string>
+    <string name="description">Description</string>
+    <string name="ini_adalah_description">Ini adalah description</string>
+    <string name="edit">edit</string>
+</resources>
