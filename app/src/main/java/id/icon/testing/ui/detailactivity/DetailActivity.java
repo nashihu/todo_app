@@ -64,6 +64,7 @@ public class DetailActivity extends AppCompatActivity {
     private void edit() {
         final String title = getIntent().getStringExtra("title");
         final String desc = getIntent().getStringExtra("desc");
+        final String id = getIntent().getStringExtra("id");
         ((TextView) findViewById(R.id.tv_detail_title)).setText(title);
         ((TextView) findViewById(R.id.tv_detail_desc)).setText(desc);
         findViewById(R.id.btn_detail_edit).setOnClickListener(new View.OnClickListener() {
@@ -71,7 +72,8 @@ public class DetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(DetailActivity.this, EditActivity.class)
                         .putExtra("title", title)
-                        .putExtra("desc", desc));
+                        .putExtra("desc", desc)
+                        .putExtra("id",id));
                 finish();
 
             }
