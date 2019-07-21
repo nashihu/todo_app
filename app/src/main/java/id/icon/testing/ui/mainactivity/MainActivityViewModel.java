@@ -26,8 +26,8 @@ import id.icon.testing.model.MainItem;
 
 public class MainActivityViewModel extends ViewModel {
     private final MutableLiveData<List<MainItem>> dataDetail = new MutableLiveData<>();
-    void setData(final Context context, final String userid) {
-        final String url = "https://jsonplaceholder.typicode.com/posts?userId="+userid;
+    void setData(final Context context) {
+        final String url = "https://jsonplaceholder.typicode.com/posts";
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         JsonArrayRequest jsonObjectRequest = new JsonArrayRequest(Request.Method.GET, url,
                 new Response.Listener<JSONArray>() {

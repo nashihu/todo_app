@@ -5,4 +5,6 @@
     <string name="description">Description</string>
     <string name="ini_adalah_description">Ini adalah description</string>
     <string name="edit">edit</string>
+    <string name="add">Add ToDo</string>
+    <string name="title_activity_add">AddActivity</string>
 </resources>
