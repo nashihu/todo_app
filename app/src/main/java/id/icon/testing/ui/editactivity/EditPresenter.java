@@ -1,6 +1,7 @@
 package id.icon.testing.ui.editactivity;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -11,33 +12,37 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+import java.util.Timer;
+
+import id.icon.testing.base.BaseFunction;
 import id.icon.testing.base.BasePresenter;
+import id.icon.testing.model.MainItem;
+import id.icon.testing.rest.API;
+import retrofit2.Call;
 
 public class EditPresenter implements BasePresenter<EditView> {
     private EditView view;
 
     void putData(final String title, final String body, final String id, Context context) {
-        String url = "https://jsonplaceholder.typicode.com/posts/" + id
-                + "?title=" + title
-                + "&body=" + body
-                + "&userId=1";
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.DELETE, url,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        view.sendMessage("success");
-                        view.requestFinish(title, body, id);
-                    }
-
-                }, new Response.ErrorListener() {
+        MainItem mainItem = new MainItem();
+        mainItem.setDesc(body);
+        mainItem.setTitle(title);
+        mainItem.setId(id);
+        API.mainItem().edit(mainItem).enqueue(new retrofit2.Callback<String>() {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                view.sendMessage(error.toString());
-                view.requestFinish(title, body, id);
+            public void onResponse(Call<String> call, retrofit2.Response<String> response) {
+                BaseFunction.proceed(call);
+                view.sendMessage("success with code "+response.code());
+                view.requestFinish(title,body,id);
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                BaseFunction.proceed(t);
+                view.sendMessage(t.getMessage());
+                view.requestFinish(title,body,id);
             }
         });
-        requestQueue.add(jsonObjectRequest);
     }
 
     @Override
